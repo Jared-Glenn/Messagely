@@ -1,8 +1,4 @@
-DROP DATABASE IF EXISTS messagely;
-
-CREATE DATABASE messagely;
-
-\c messagely
+\c messagely_test
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS messages;
@@ -25,7 +21,3 @@ CREATE TABLE messages (
     sent_at timestamp with time zone NOT NULL,
     read_at timestamp with time zone
 );
-
-INSERT INTO users (username, password, first_name, last_name, phone, join_at, last_login_at)
-  VALUES ('jaredg', 'pass', 'jared', 'glenn', '+4355123350',
-   '2024-01-19 09:10:14.691514', '2024-01-19T09:10:14.691594+00:00')

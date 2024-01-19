@@ -5,10 +5,10 @@ const { Client } = require("pg");
 let DB_URI;
 
 if (process.env.NODE_ENV === "test") {
-    DB_URI = "lunchly_test";
+    DB_URI = "messagely_test";
 }
 else {
-    DB_URI = "lunchly";
+    DB_URI = "messagely";
 }
 
 const DB_PASSWORD = process.env.DB_PASSWORD
