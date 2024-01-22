@@ -2,6 +2,9 @@
 
 const db = require("../db");
 const ExpressError = require("../expressError");
+const bcrypt = require("bcrypt");
+
+const { BCRYPT_WORK_FACTOR } = require("../config");
 
 
 /** Message on the site. */
@@ -11,7 +14,6 @@ class Message {
   /** register new message -- returns
    *    {id, from_username, to_username, body, sent_at}
    */
-
   static async create({from_username, to_username, body}) {
     const result = await db.query(
         `INSERT INTO messages (
