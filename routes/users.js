@@ -28,7 +28,7 @@ router.get('/:username', async (req, res, next) => {
     try {
         const results = await User.get(req.params.username);
 
-        if (results.rows.length === 0) {
+        if (Object.keys(results).length === 0) {
             throw new ExpressError(`Can't find username: ${req.params.username}`, 404);
         }
         return res.json(results);
@@ -51,7 +51,7 @@ router.get('/:username/to', async (req, res, next) => {
     try {
         const results = await User.messagesTo(req.params.username);
 
-        if (results.rows.length === 0) {
+        if (Object.keys(results).length === 0) {
             throw new ExpressError(`Can't find messages to: ${req.params.username}`, 404);
         }
 
@@ -71,5 +71,22 @@ router.get('/:username/to', async (req, res, next) => {
  *                 to_user: {username, first_name, last_name, phone}}, ...]}
  *
  **/
+router.get('/:username/from', async (req, res, next) => {
+    try {
+        const results = await User.messagesFrom(req.params.username);
+
+        console.log(results);
+
+        if (Object.keys(results).length === 0) {
+            throw new ExpressError(`Can't find messages from: ${req.params.username}`, 404);
+        }
+
+        return res.json(results);
+    }
+    catch (e) {
+        return next(e);
+    }
+})
+
 
 module.exports = router;
