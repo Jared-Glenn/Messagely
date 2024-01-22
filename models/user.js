@@ -46,8 +46,8 @@ class User {
         err.status = 404;
         throw err;
       }
-
-      return user && await bcrypt.compare(password, user.password)
+      
+      return user && await bcrypt.compare(password, user.password);
   }
 
   /** Update last_login_at for user */

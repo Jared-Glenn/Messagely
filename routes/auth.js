@@ -34,5 +34,21 @@ router.post("/login", async function (req, res, next) {
  *
  *  Make sure to update their last-login!
  */
+router.post('/register', async function (req, res, next) {
+    try {
+        let { username, password, first_name, last_name, phone } = req.body;
+        if (await User.register({ username, password, first_name, last_name, phone })) {
+            let token = jwt.sign({username}, SECRET_KEY);
+            return res.json({token});
+        }
+        else {
+            throw new ExpressError("Invalid fields.", 400);
+        }
+    }
+    catch (err) {
+        return next(err);
+    }
+})
+
 
 module.exports = router;

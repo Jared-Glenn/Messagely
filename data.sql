@@ -27,9 +27,9 @@ CREATE TABLE messages (
 );
 
 INSERT INTO users (username, password, first_name, last_name, phone, join_at, last_login_at)
-    VALUES  ('jaredg', 'pass', 'jared', 'glenn', '+4355123350',
+    VALUES  ('jaredg', '$2b$12$1KtfzwisOf4d/tTQLShOWe/moYGc/dhmG9zVMfb2s8V4h3b4KW.2K', 'jared', 'glenn', '+4355123350',
             '2024-01-19 09:10:14.691514', '2024-01-19T09:10:14.691594+00:00'),
-            ('bekag', 'pass', 'beka', 'glenn', '+4355123351',
+            ('bekag', '$2b$12$1KtfzwisOf4d/tTQLShOWe/moYGc/dhmG9zVMfb2s8V4h3b4KW.2K', 'beka', 'glenn', '+4355123351',
             '2024-01-20 09:10:14.691514', '2024-01-20T09:10:14.691594+00:00');
 
 INSERT INTO messages (id, from_username, to_username, body, sent_at)
